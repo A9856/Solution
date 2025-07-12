@@ -13,7 +13,7 @@ export default function ManageEmployees() {
         try {
             if (editId) {
                 // update mode 
-                await axios.put(`https://s-solution-1.onrender.com/api/Emplies/${editId}`, {
+                await axios.put(`https://localhost:7155/api/Emplies/${editId}`, {
                     id: editId,
                     name: formData.name,
                     email: formData.email,
@@ -26,7 +26,7 @@ export default function ManageEmployees() {
                 setEditId(null); // out update mode
             } else {
                 // ADD MODE
-                await axios.post('https://s-solution-1.onrender.com/api/Emplies', formData);
+                await axios.post('https://localhost:7155/api/Emplies', formData);
                 alert('Country added successfully!');
             }
 
@@ -50,7 +50,7 @@ export default function ManageEmployees() {
     };
 
     function fetchemplies() {
-        axios.get("https://s-solution-1.onrender.com/api/Emplies")
+        axios.get("https://localhost:7155/api/Emplies")
             .then((res) => setEmplies(res.data))
     }
 
@@ -59,7 +59,7 @@ export default function ManageEmployees() {
         if (!confirmDelete) return;
 
         try {
-            await axios.delete(`https://s-solution-1.onrender.com/api/Emplies/${id}`);
+            await axios.delete(`https://localhost:7155/api/Emplies/${id}`);
             alert('Country deleted successfully!');
             fetchemplies()
         } catch (error) {

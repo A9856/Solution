@@ -15,7 +15,7 @@ function ManageDistrict() {
         try {
             if (editId) {
                 //update mode
-                await axios.put(`https://s-solution-1.onrender.com/api/Districts/${editId}`, {
+                await axios.put(`https://localhost:7155/api/Districts/${editId}`, {
                     id: editId,
                     name: formData.name,
                     code: formData.code,
@@ -26,7 +26,7 @@ function ManageDistrict() {
                 setEditId(null); // out update mode
             } else {
                 // ADD MODE
-                await axios.post('https://s-solution-1.onrender.com/api/Districts', formData);
+                await axios.post('https://localhost:7155/api/Districts', formData);
                 alert('Country added successfully!');
             }
 
@@ -38,7 +38,7 @@ function ManageDistrict() {
     };
 
     function fetchDistricts() {
-        axios.get("https://s-solution-1.onrender.com/api/Districts")
+        axios.get("https://localhost:7155/api/Districts")
             .then((res) => setDistricts(res.data))
     }
 
@@ -47,7 +47,7 @@ function ManageDistrict() {
         if (!confirmDelete) return;
 
         try {
-            await axios.delete(`https://s-solution-1.onrender.com/api/Districts/${id}`);
+            await axios.delete(`https://localhost:7155/api/Districts/${id}`);
             alert('Country deleted successfully!');
             fetchDistricts()
         } catch (error) {

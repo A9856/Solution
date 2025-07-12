@@ -17,7 +17,7 @@ function ManageCountry() {
     try {
       if (editId) {
         // update mode
-        await axios.put(`https://s-solution-1.onrender.com/api/Countries/${editId}`, {
+        await axios.put(`https://localhost:7155/api/Countries/${editId}`, {
           id: editId,
           name: formData.name,
           code: formData.code,
@@ -26,7 +26,7 @@ function ManageCountry() {
         setEditId(null); // out upadte mode
       } else {
         // ADD MODE
-        await axios.post('https://s-solution-1.onrender.com/api/Countries', formData);
+        await axios.post('https://localhost:7155/api/Countries', formData);
         alert('Country added successfully!');
       }
 
@@ -43,7 +43,7 @@ function ManageCountry() {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`https://s-solution-1.onrender.com/api/Countries/${id}`);
+      await axios.delete(`https://localhost:7155/api/Countries/${id}`);
       alert('Country deleted successfully!');
      fetchCountries();
     } catch (error) {
@@ -56,7 +56,7 @@ function ManageCountry() {
   };
 
     function fetchCountries() {
-        axios.get("https://s-solution-1.onrender.com/api/Countries")
+        axios.get("https://localhost:7155/api/Countries")
             .then((res) => setCountries(res.data))
     }
 
