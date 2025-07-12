@@ -14,7 +14,7 @@ function ManageState() {
         try {
             if (editId) {
                 //update for
-                await axios.put(`https://localhost:7155/api/States/${editId}`, {
+                await axios.put(`https://s-solution-1.onrender.com/api/States/${editId}`, {
                     id: editId,
                     name: formData.name,
                     code: formData.code,
@@ -24,7 +24,7 @@ function ManageState() {
                 setEditId(null); // out exit work
             } else {
                 // ADD MODE
-                await axios.post('https://localhost:7155/api/States', formData);
+                await axios.post('https://s-solution-1.onrender.com/api/States', formData);
                 alert('Country added successfully!');
             }
 
@@ -45,7 +45,7 @@ function ManageState() {
     };
 
     function fetchStates() {
-        axios.get("https://localhost:7155/api/States")
+        axios.get("https://s-solution-1.onrender.com/api/States")
             .then((res) => setStates(res.data))
     }
 
@@ -54,7 +54,7 @@ function ManageState() {
         if (!confirmDelete) return;
 
         try {
-            await axios.delete(`https://localhost:7155/api/States/${id}`);
+            await axios.delete(`https://s-solution-1.onrender.com/api/States/${id}`);
             alert('Country deleted successfully!');
             fetchStates();
         } catch (error) {
