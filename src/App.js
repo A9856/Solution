@@ -10,7 +10,7 @@ import ManageEmployees from './ManageEmployees';
 
 function App() {
   return (
-    <BrowserRouter basename='/S-Soluution/'>
+    <BrowserRouter basename="/Solution">
     <Navbar/>      
       <Routes>
         <Route path="/" element={<Home/>} />
